@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Question {
     String statement;
-    List<String> options;
+    String[] options;
     int correctOption;
     int selectedOption;
 }
