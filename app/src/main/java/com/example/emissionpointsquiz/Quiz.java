@@ -1,8 +1,9 @@
 package com.example.emissionpointsquiz;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Quiz {
+public class Quiz implements Serializable {
     Question[] questions;
     int correctCount;
     int wrongCount;

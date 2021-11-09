@@ -84,6 +84,7 @@ public class QuizActivity extends AppCompatActivity {
         }
         else{
             Intent next = new Intent(this, Results.class);
+            next.putExtra("quiz", quiz);
             startActivity(next);
         }
     }
