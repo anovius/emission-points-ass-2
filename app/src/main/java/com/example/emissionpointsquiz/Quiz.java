@@ -12,6 +12,9 @@ public class Quiz {
         wrongCount = 0;
         questions = new Question[10];
 
+        for(int i=0; i<10; i++)
+            questions[i] = new Question();
+
         questions[0].statement = "What are غ خ ?";
         questions[0].options = new String[]{
           "Lahatiyah",
@@ -101,5 +104,10 @@ public class Quiz {
                 "Lahatiyahh"
         };
         questions[9].correctOption = 2;
+    }
+
+    public void check(int index){
+        if(questions[index].check()) correctCount++;
+        else wrongCount++;
     }
 }

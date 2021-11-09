@@ -14,7 +14,7 @@ public class Homepage extends AppCompatActivity {
         setContentView(R.layout.activity_homepage);
     }
 
-    public void  startQuiz(View view){
+    public void startQuiz(View view){
         Intent next = new Intent(this, QuizActivity.class);
         startActivity(next);
     }

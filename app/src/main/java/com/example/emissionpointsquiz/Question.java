@@ -7,4 +7,8 @@ public class Question {
     String[] options;
     int correctOption;
     int selectedOption;
+
+    public boolean check(){
+        return this.selectedOption == this.correctOption;
+    }
 }
