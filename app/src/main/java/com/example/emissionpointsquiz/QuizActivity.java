@@ -2,6 +2,7 @@ package com.example.emissionpointsquiz;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -76,13 +77,14 @@ public class QuizActivity extends AppCompatActivity {
         if(currentQuestion <10){
             generateQuestion();
             checkQuestion();
-             if(currentQuestion == 9) {
+             if(currentQuestion == 10) {
                 Button btn = findViewById(R.id.nextBtn);
                 btn.setText("Finish");
             }
         }
         else{
-            //Move to score card
+            Intent next = new Intent(this, Results.class);
+            startActivity(next);
         }
     }
 }
