@@ -19,6 +19,6 @@ public class Results extends AppCompatActivity {
 
         res = findViewById(R.id.results);
 
-        res.setText("Correct\t  " + quiz.correctCount + "\nWrong\t  " + quiz.wrongCount + "\nTotal\t  10");
+        res.setText(""+quiz.correctCount+"/10");
     }
 }

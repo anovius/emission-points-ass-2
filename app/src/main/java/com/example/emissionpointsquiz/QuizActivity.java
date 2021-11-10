@@ -57,16 +57,16 @@ public class QuizActivity extends AppCompatActivity {
 
         switch (selectedId){
             case R.id.option1:
-                quiz.questions[currentQuestion-1].selectedOption = 0;
+                quiz.questions[currentQuestion - 1].selectedOption = 0;
                 break;
             case R.id.option2:
-                quiz.questions[currentQuestion-1].selectedOption = 1;
+                quiz.questions[currentQuestion - 1].selectedOption = 1;
                 break;
             case R.id.option3:
-                quiz.questions[currentQuestion-1].selectedOption = 2;
+                quiz.questions[currentQuestion - 1].selectedOption = 2;
                 break;
             case R.id.option4:
-                quiz.questions[currentQuestion-1].selectedOption = 3;
+                quiz.questions[currentQuestion - 1].selectedOption = 3;
                 break;
         }
 
@@ -75,14 +75,15 @@ public class QuizActivity extends AppCompatActivity {
 
     public void nextQuestion(View view){
         if(currentQuestion <10){
-            generateQuestion();
             checkQuestion();
+            generateQuestion();
              if(currentQuestion == 10) {
                 Button btn = findViewById(R.id.nextBtn);
                 btn.setText("Finish");
             }
         }
         else{
+            checkQuestion();
             Intent next = new Intent(this, Results.class);
             next.putExtra("quiz", quiz);
             startActivity(next);
