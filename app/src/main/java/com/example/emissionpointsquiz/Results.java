@@ -14,6 +14,8 @@ public class Results extends AppCompatActivity {
     TextView res;
     Quiz quiz;
 
+    String shareData;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +24,8 @@ public class Results extends AppCompatActivity {
         quiz = (Quiz) intent.getExtras().getSerializable("quiz");
 
         res = findViewById(R.id.results);
+
+        shareData = "";
 
         res.setText(""+quiz.correctCount+"/10");
 
@@ -32,11 +36,13 @@ public class Results extends AppCompatActivity {
         for(int i=0; i<10; i++){
             TextView txtView = new TextView(this);
             txtView.setText(quiz.questions[i].statement);
+            shareData +=  quiz.questions[i].statement + '\n';
             txtView.setTextSize(20);
             layout.addView(txtView);
 
             TextView txtView2 = new TextView(this);
             txtView2.setText("Your Option: "+quiz.questions[i].options[quiz.questions[i].selectedOption]);
+            shareData += "Your Option: "+quiz.questions[i].options[quiz.questions[i].selectedOption] + '\n';
             txtView2.setTextSize(16);
             if(quiz.questions[i].check())
                 txtView2.setTextColor(Color.parseColor("#17b978"));
@@ -46,6 +52,7 @@ public class Results extends AppCompatActivity {
 
             TextView txtView3 = new TextView(this);
             txtView3.setText("Correct Option: "+quiz.questions[i].options[quiz.questions[i].correctOption]);
+            shareData += "Correct Option: "+quiz.questions[i].options[quiz.questions[i].correctOption] + '\n';
             txtView3.setTextSize(16);
             txtView3.setTextColor(Color.parseColor("#17b978"));
             layout.addView(txtView3);
@@ -55,7 +62,9 @@ public class Results extends AppCompatActivity {
     public void shareData(View view) {
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_TEXT, "My Score: " +quiz.correctCount+"/10");
+
+        shareData += "My Score: " +quiz.correctCount+"/10\n";
+        sendIntent.putExtra(Intent.EXTRA_TEXT, shareData);
         sendIntent.setType("text/plain");
         startActivity(sendIntent);
     }
