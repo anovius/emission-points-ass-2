@@ -11,16 +11,20 @@
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity
             android:name=".Results"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".QuizActivity"/>
         <activity
             android:name=".QuizActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".Homepage"/>
         <activity
             android:name=".Homepage"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:parentActivityName=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
