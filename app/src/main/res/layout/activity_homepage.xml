@@ -24,7 +24,7 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="72dp"
         android:text="Emission Points Quiz"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
